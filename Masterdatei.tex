@@ -1,0 +1,31 @@
+% Header beinhaltet Dokumentenklasse sowie includierte Packages
+\input{Header/Header}
+
+%Zeilenabstand * 1.25 (default)
+\renewcommand{\baselinestretch}{1.25}\normalsize
+%(Kommentar entfernen, um Zeilenabstand
+% auf 1,5-fache Groesse zu ueberschreiben)
+% \renewcommand{\baselinestretch}{1.50}\normalsize
+
+\title{Die perfekte Pizza}
+\author{Pizza Man \and \small\texttt{pizza@pizza.pizza}}
+\date{\today}
+
+\begin{document}
+  \maketitle
+
+  \input{Glossar}
+  \input{Abstract}
+  \input{Expose}
+
+
+  \printbibliography
+
+  \printglossary[title=Glossar]
+  \printglossary[type=\acronymtype,title={Abkürzungen}]
+
+  % Abbildungsverzeichnis, Tabellenverzeichnis und Glossar ausgeben
+  % \listoffigures
+  % \lstlistoflistings
+  % \listoftables
+\end{document}
