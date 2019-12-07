@@ -24,16 +24,16 @@
   \documentclass[12pt,a4paper,listof=totoc,twoside, headsepline]{scrreprt}
   \usepackage[a4paper]{geometry}
   \geometry{a4paper,left=25mm,right=25mm,
-  bottom=20mm,top=15mm,bindingoffset=2mm,
-  includehead,includefoot}
+            bottom=20mm,top=15mm,bindingoffset=2mm,
+            includehead,includefoot}
 }
 % ARBEIT ZWEISEITIG --->
 \def\Article{
   \documentclass[12pt,a4paper,listof=totoc,twoside, headsepline, notitlepage]{scrartcl}
   \usepackage[a4paper]{geometry}
   \geometry{a4paper,left=25mm,right=25mm,
-  bottom=20mm,top=15mm,bindingoffset=2mm,
-  includehead,includefoot}
+            bottom=20mm,top=15mm,bindingoffset=2mm,
+            includehead,includefoot}
 }
 
 %<--- Einstellungen Kopfzeile
@@ -51,59 +51,63 @@
 \Article
 %\makroZweiseitig
 
-%schalte Umlaute frei
+% schalte Umlaute frei
 \usepackage[ngerman]{babel}
-%passende Codierung
+% passende Codierung
 \usepackage[utf8]{inputenc}
-%Seitenspiegel einzustellen
+% Seitenspiegel einzustellen
 \usepackage[a4paper]{geometry}
-%Mathepaket
+% Mathepaket
 \usepackage{amsmath}
-%Symbole
+% Symbole
 \usepackage{amssymb}
-%griechische Symbole
+% griechische Symbole
 \usepackage{upgreek}
-%weitere Symbole
+% weitere Symbole
 \usepackage{pxfonts}
 % Phonetischen Alphabete für LaTeX
 \usepackage{tipa}
-%farbige Schriften
+% farbige Schriften
 \usepackage{color}
 \usepackage{scrhack}
-%Bilder fixieren
+% Bilder fixieren
 \usepackage{float}
-%Code formatierung
+% Code formatierung
 \usepackage[dvipsnames]{xcolor}
 \usepackage{listings}
-%Grafiken einbinden
+% Grafiken einbinden
 \usepackage{graphicx}
 % Kopf- und Fußzeilen
-\usepackage[automark,standardstyle,markusedcase]{scrpage2}
+\usepackage[automark]{scrlayer-scrpage}
 % deutsche Überschriften
 \usepackage[ngerman]{translator}
+% Abb. statt Abbildung
+\usepackage{caption3}
+\usepackage[style=authoryear]{biblatex}
+\usepackage[babel,german=quotes]{csquotes}
+\usepackage{rotating}
+\usepackage[hidelinks]{hyperref}
+% Glossar:
+% - keine Seitenzahlen anzeigen
+% - ein Abkürzungsverzeichnis erstellen
+% - Einträge im Inhaltsverzeichnis
+\usepackage[nonumberlist,acronym,toc]{glossaries}
+\usepackage{blindtext}
+% Add more table styles
+\usepackage{array}
+% better customization of enumerables
+\usepackage{enumitem}
+
+% \usepackage{cite}
+
 % Kopfzeilenabstand festlegen
 \setlength{\headheight}{10mm}
-%Abb. statt Abbildung
-\usepackage{caption3}
-
-\usepackage[style=authoryear]{biblatex}
-% \bibliographystyle{dcu}
-\usepackage[babel,german=quotes]{csquotes}
-
-\usepackage{rotating}
-\usepackage[colorlinks=false]{hyperref}
 
 \addto\captionsngerman{
-\renewcommand{\figurename}{Abb.}
-\renewcommand{\tablename}{Tab.}
+  \renewcommand{\figurename}{Abb.}
+  \renewcommand{\tablename}{Tab.}
 }
-%Glossar-Pakage
-\usepackage[
-nonumberlist, %keine Seitenzahlen anzeigen
-acronym,      %ein Abkürzungsverzeichnis erstellen
-toc]          %Einträge im Inhaltsverzeichnis
-{glossaries}
-% \usepackage{cite}
+
 %Glossar einschalten
 \makeglossaries
 
@@ -111,24 +115,29 @@ toc]          %Einträge im Inhaltsverzeichnis
 
 \definecolor{lightlightgray}{gray}{0.95}
 
+\setkomafont{section}{\color{SkyBlue}\scshape\rmfamily\bfseries\Large}
+\setkomafont{subsection}{\color{SkyBlue}\scshape\rmfamily\mdseries\large}
+\setkomafont{subsubsection}{\color{SkyBlue}\scshape\rmfamily\bfseries}
+\setkomafont{sectionentry}{\normalsize\bfseries}
+
 \lstdefinestyle{Common}
 {
-    basicstyle=\scriptsize\ttfamily\null,
-    numbers=left,
-    numbersep=1em,
-    frame=single,
-    framesep=\fboxsep,
-    framerule=\fboxrule,
-    xleftmargin=\dimexpr\fboxsep+\fboxrule,
-    xrightmargin=\dimexpr\fboxsep+\fboxrule,
-    breaklines=true,
-    breakindent=0pt,
-    tabsize=5,
-    columns=flexible,
-    showstringspaces=false,
-    backgroundcolor = \color{lightlightgray},
-    captionpos=b,% or t for top (default)
-    abovecaptionskip=0.5\smallskipamount,   % there is also belowcaptionskip
+  basicstyle=\scriptsize\ttfamily\null,
+  numbers=left,
+  numbersep=1em,
+  frame=single,
+  framesep=\fboxsep,
+  framerule=\fboxrule,
+  xleftmargin=\dimexpr\fboxsep+\fboxrule,
+  xrightmargin=\dimexpr\fboxsep+\fboxrule,
+  breaklines=true,
+  breakindent=0pt,
+  tabsize=5,
+  columns=flexible,
+  showstringspaces=false,
+  backgroundcolor = \color{lightlightgray},
+  captionpos=b,% or t for top (default)
+  abovecaptionskip=0.5\smallskipamount,   % there is also belowcaptionskip
 }
 
 \input{Header/YAML}
